@@ -131,7 +131,15 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+#  static 파일들의 root가 base_dir에서(pragmatic) staticfiles 폴더이다 여기가 static 파일들의 root 파일
+STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+STATICFILES_DIRS=[
+    BASE_DIR/"static"
+]
