@@ -16,12 +16,18 @@
   <h1>
       park hoodoo
   </h1>
+<!--  action 에는 요청하려는 URL주소 를 넣어줘야 한다 -->
+  <form action="/account/hello_world/" method="post">
+<!--    Django에서 POST를 이용해서 정보를 서버에 보낼때는 csrf 라는 토큰을 명시해 줘야한다  csrf는 보안기능 -->
+    {% csrf_token %}
+    <input type="submit" class="btn btn-primary" value="POST">
 
-    <div class="testing" style="display:block">block</div>
-    <div class="testing" style="display:inline">inline</div>
-    <div class="testing" style="display:None">None</div>
-    <div class="testing" style="display:inline-block">inline-block</div>
-    <div class="testing">default</div>
+  </form>
+    <h1>
+        {{ text2 }}
+    </h1>
+
+
 
 </div>
 
