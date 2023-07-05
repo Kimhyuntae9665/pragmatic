@@ -1,6 +1,8 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
+from accountapp.models import HelloWorld
+
 
 # Create your views here.
 
@@ -8,7 +10,14 @@ def hello_world(request):
     # 여기는 서버가 request를 받았을때의 처리를 담당하는 곳
     #  서버가 request를 받았을때 render로 보여줄 페이지를 정하는 것
     if request.method == "POST":
-        return  render(request,'accountapp/hello_world.html',context={'text2':'POST METHOD!!!'})
+        #      넘어온 request 요청에서 POST method를 사용해서 넘어온 요청에서 'hello_world_input'이라는 이름을 가진 데이터를 가져와라
+        temp = request.POST.get('hello_world_input')
+
+        new_hello_world = HelloWorld()
+        new_hello_world.text = temp
+        new_hello_world.save()
+
+        return  render(request,'accountapp/hello_world.html',context={'new_hello_world_instance':new_hello_world})
     else :
         return render(request,'accountapp/hello_world.html',context={'text2':'GET METHOD!!!'})
 
