@@ -21,6 +21,7 @@
 <!--    Django에서 POST를 이용해서 정보를 서버에 보낼때는 csrf 라는 토큰을 명시해 줘야한다  csrf는 보안기능 -->
     {% csrf_token %}
       <div>
+                        <!-- name 이 데이터의 KEY 값 말그대로 이름         -->
           <input type="text" name="hello_world_input">
       </div>
       <div>
@@ -30,11 +31,12 @@
 
   </form>
 
-    {% if new_hello_world_instance %}
-
-        <h1>
-            {{ new_hello_world_instance.text }}
-        </h1>
+    {% if hello_world_list %}
+        {% for hello_world in hello_world_list %}
+        <h4>
+            {{ hello_world.text }}
+        </h4>
+        {% endfor %}
 
     {% endif %}
 
