@@ -1,6 +1,9 @@
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
+from django.views.generic import CreateView
 
 from accountapp.models import HelloWorld
 
@@ -18,7 +21,7 @@ def hello_world(request):
         new_hello_world.text = temp
         new_hello_world.save()
     
-
+        # reverse는 함수형 class 에서
         return  HttpResponseRedirect(reverse('accountapp:hello_world'))
     else :
 
@@ -27,3 +30,12 @@ def hello_world(request):
 
 
 
+class AccountCreateView(CreateView):
+    #  Django 에서 기본으로 제공해 주는 User model
+    model = User
+    #  User 를 만들때 Form 이 필요하다
+    form_class = UserCreationForm
+    # 성공했을 때 redirect 할 URL , reverse_lazy는 class형 view에서
+    success_url = reverse_lazy('accountapp:hello_world')
+    # 계정을 만들 때 사용할 template 파일의 이름
+    template_name='accountapp/create.html'
