@@ -4,12 +4,13 @@
 
 <div style="text-align:center">
   <form action="{% url 'accountapp:create' %}" method="POST">
+<!--     csrf_token은 form과 set로 따라간다 -->
     {% csrf_token %}
 
 <!--    models 에서 섰던 form_class  = UserCreationform 으로 되어 있기에 form 만 적으면 User의 회원가입 형식이 자동으로 생성된다   -->
       {{ form }}
 
-      <input type="submit" class="btn btn=primary" value="POST">
+      <input type="submit" class="btn btn-primary" value="제출">
 
   </form>
 
