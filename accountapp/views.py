@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
-from django.views.generic import CreateView
+from django.views.generic import CreateView, DetailView
 
 from accountapp.models import HelloWorld
 
@@ -40,3 +40,14 @@ class AccountCreateView(CreateView):
     success_url = reverse_lazy('accountapp:hello_world')
     # 계정을 만들 때 사용할 template 파일의 이름
     template_name='accountapp/create.html'
+
+
+
+class AccountDetailView(DetailView):
+    # Detail View는 Read 이기때문에 model의 field 가 그리 많지 않다
+    #  어떤 모델을 쓸지
+    model = User
+    # 어떤 파일로 어떻게 시각화 할지
+    template_name= 'accountapp/detail.html'
+
+    context_object_name='target_user'
