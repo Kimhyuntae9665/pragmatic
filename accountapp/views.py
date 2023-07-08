@@ -58,6 +58,7 @@ class AccountDetailView(DetailView):
 class AccountUpdateView(UpdateView):
     #  Django 에서 기본으로 제공해 주는 User model
     model = User
+    context_object_name = 'target_user'
     #  User 를 만들때 Form 이 필요하다  ==> 나중에 create.html에서 {{form}}으로 적어서 UserCreationForm을 가져온다
     form_class = AccountUpdateForm
     # 성공했을 때 redirect 할 URL , reverse_lazy는 class형 view에서
@@ -68,5 +69,6 @@ class AccountUpdateView(UpdateView):
 
 class AccountDeleteView(DeleteView):
     model = User
+    context_object_name = 'target_user'
     success_url = reverse_lazy('accountapp:login')
     template_name = 'accountapp/delete.html'
