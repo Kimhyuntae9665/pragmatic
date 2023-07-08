@@ -11,6 +11,9 @@
         <a href="{% url 'accountapp:login' %}?next={{request.path}}">
             <span>login</span>
         </a>
+        <a href="{% url 'accountapp:create' %}?next={{request.path}}">
+            <span>SignUp</span>
+        </a>
         {% else %}
                                 <!--        url.py에서 넘겨준 pk를 여기에다가 넣어줘야 한다      -->
         <a href="{% url 'accountapp:detail' pk=user.pk %}">
