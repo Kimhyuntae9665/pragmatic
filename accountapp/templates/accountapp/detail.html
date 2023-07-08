@@ -7,11 +7,23 @@
 <div>
   <div style="text-align:center;">
     <p>
+<!--      context_object_name = target_user를 사용해서 들어오는 사람에 따라 정보가 바뀌게 한다 -->
       {{target_user.date_joined}}
     </p>
     <h2>
       {{target_user.username}}
     </h2>
+
+      {% if target_user == user %}
+      <a href="{% url 'accountapp:update' pk=user.pk %}">
+          <p>
+              Change Info
+          </p>
+
+
+
+      </a>
+      {% endif %}
   </div>
 </div>
 

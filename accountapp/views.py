@@ -3,8 +3,9 @@ from django.contrib.auth.models import User
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
-from django.views.generic import CreateView, DetailView
+from django.views.generic import CreateView, DetailView, UpdateView
 
+from accountapp.forms import AccountUpdateForm
 from accountapp.models import HelloWorld
 
 
@@ -49,5 +50,17 @@ class AccountDetailView(DetailView):
     model = User
     # 어떤 파일로 어떻게 시각화 할지
     template_name= 'accountapp/detail.html'
-
+    # 들어오는 사람에 따라서 instance 의 정보가 바뀐다
     context_object_name='target_user'
+
+
+
+class AccountUpdateView(UpdateView):
+    #  Django 에서 기본으로 제공해 주는 User model
+    model = User
+    #  User 를 만들때 Form 이 필요하다  ==> 나중에 create.html에서 {{form}}으로 적어서 UserCreationForm을 가져온다
+    form_class = AccountUpdateForm
+    # 성공했을 때 redirect 할 URL , reverse_lazy는 class형 view에서
+    success_url = reverse_lazy('accountapp:hello_world')
+    # 계정을 만들 때 사용할 template 파일의 이름
+    template_name='accountapp/update.html'
