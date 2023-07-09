@@ -14,7 +14,7 @@ from accountapp.models import HelloWorld
 
 # Create your views here.
 
-has_ownership = [account_ownership_reuired,login_required]
+has_ownership = [account_ownership_required,login_required]
 
 @login_required
 def hello_world(request):

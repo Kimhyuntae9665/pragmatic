@@ -149,3 +149,13 @@ STATICFILES_DIRS=[
 
 LOGIN_REDIRECT_URL = reverse_lazy('acoountapp:hello_world')
 LOGOUT_REDIRECT_URL = reverse_lazy('acoountapp:login')
+
+
+
+MEDIA_URL = 'media/'
+
+# 127.0.0.1:8000/media/test.jpg  이렇게 해서 웹  페이지에서 이미지 파일에 접근 가능하다
+
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+
+#  모든 media 이미지 파일은 media라는 디렉토리 밑에 저장된다
