@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'bootstrap4',
     'django.contrib.staticfiles',
     'accountapp',
+    'profileapp',
 ]
 
 MIDDLEWARE = [
@@ -158,4 +159,4 @@ MEDIA_URL = 'media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
-#  모든 media 이미지 파일은 media라는 디렉토리 밑에 저장된다
+#  모든 media 이미지 파일은 서버 안에 media라는 디렉토리 밑에 저장된다
