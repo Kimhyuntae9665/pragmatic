@@ -47,5 +47,5 @@ class ProfileUpdateView(UpdateView):
 
 
     def get_success_url(self):
-        #  deatil 페이지로 넘어갈려면 pk가 필요하다
+        #  deatil 페이지로 넘어갈려면 pk가 필요하다  kwargs : keywordsarguments 매개변수
         return reverse_lazy('accountapp:detail',kwargs={'pk':self.object.user.pk})
