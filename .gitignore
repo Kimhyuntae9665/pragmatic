@@ -84,4 +84,6 @@ venv/
 
 __pycache__/
 
-media/
+media/article
+
+media/profile
