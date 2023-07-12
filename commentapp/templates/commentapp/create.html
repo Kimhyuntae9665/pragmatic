@@ -22,7 +22,7 @@
         class = "btn btn-dark rounded-pill col-6 mt-3">
           Login
       </a>
-      {% endif %}
+      {% endif %} <!--article을 쓸 수 있는 이유는 이 create.jtml 파일이 views 에서 나온거고 거기의 CreationComment class의 model이 comment 이기 때문이다 comment에는 field로 article이 있다   -->
       <input type="hidden" name="article_pk" value="{{ article.pk }}">
 
   </form>
