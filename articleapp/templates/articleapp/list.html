@@ -5,9 +5,20 @@
 
 
 <style>
+
+    .container {
+    padding : 0;
+    margin:0, auto;
+    }
+
+    .container a {
+<!--    width 는 mobile에서 게시물의 너비를 42%로 한다는 말 -->
+    width: 42%;
+    max-width: 250px;
+
+    }
+
   .container div {
-  width: 250px;
-  background-color: antiquewhite;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,7 +52,7 @@
 {% include 'snippsets/pagination.html' with page_obj=page_obj %}
 
 <div style="text-align:center" >
-    <a href="{% url 'articleapp:create' %}" class="btn btn-dark rounded-pill col-3 mt-3 mb-3">
+    <a href="{% url 'articleapp:create' %}" class="btn btn-dark rounded-pill  mt-3 mb-3 px-3 ">
         Create Article
     </a>
 </div>
