@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from django.urls import reverse
+from django.shortcuts import render, redirect
+from django.urls import reverse, reverse_lazy
 from django.views.generic import CreateView, DeleteView
 
 from articleapp.models import Article
@@ -40,3 +40,5 @@ class CommentDeleteView(DeleteView):
 
     def get_success_url(self):
         return reverse('articleapp:detail',kwargs = {'pk':self.object.article.pk})
+
+
