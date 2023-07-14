@@ -2,29 +2,27 @@
     <div>
         <h1 class="pragmatic_logo">Pragmatic</h1>
     </div>
-    <div>
-        <a href="{% url 'articleapp:list' %}">
-            <span>Article |</span>
+    <div class="pragmatic_header_navbar">
+        <a href="{% url 'articleapp:list' %}" class="pragmatic_header_nav">
+            <span>Article </span>
         </a>
-        <a href="{% url 'projectapp:list' %}">
-            <span>Project |</span>
+        <a href="{% url 'projectapp:list' %}" class="pragmatic_header_nav">
+            <span>Project </span>
         </a>
-        <span>nav2 |</span>
-        <span>nav3</span>
         {% if not user.is_authenticated %}
         <!--  우리가 어디 있든지 간에 login을 누르고 login을 하고 난 다음에는 원래 있었던 경로의 URL 로 돌아온다         -->
-        <a href="{% url 'accountapp:login' %}?next={{request.path}}">
+        <a href="{% url 'accountapp:login' %}?next={{request.path}}" class="pragmatic_header_nav">
             <span>login</span>
         </a>
-        <a href="{% url 'accountapp:create' %}?next={{request.path}}">
+        <a href="{% url 'accountapp:create' %}?next={{request.path}}" class="pragmatic_header_nav">
             <span>SignUp</span>
         </a>
         {% else %}
                                 <!--        url.py에서 넘겨준 pk를 여기에다가 넣어줘야 한다      -->
-        <a href="{% url 'accountapp:detail' pk=user.pk %}">
+        <a href="{% url 'accountapp:detail' pk=user.pk %}" class="pragmatic_header_nav">
             <span>MyPage</span>
         </a>
-        <a href="{% url 'accountapp:logout' %}?next={{request.path}}">
+        <a href="{% url 'accountapp:logout' %}?next={{request.path}}" class="pragmatic_header_nav">
             <span>logout</span>
         </a>
         {% endif %}
