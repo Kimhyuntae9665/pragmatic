@@ -25,5 +25,6 @@ urlpatterns = [
     path('profiles/',include('profileapp.urls')),
     path('articles/',include('articleapp.urls')),
     path('comments/',include('commentapp.urls')),
+    path('projects/',include('projectapp.urls')),
 #     media에 관련한 추가적인 setting , pragmatic의 settings의 MEDIA_URL과 MEDIA_ROOT를 연결해서 서버에서 media 디렉토리에서 img파일을 가져온다
 ] + static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)

@@ -4,10 +4,12 @@
     </div>
     <div>
         <a href="{% url 'articleapp:list' %}">
-            <span>Article</span>
+            <span>Article |</span>
         </a>
-        <span>nav1</span>
-        <span>nav2</span>
+        <a href="{% url 'projectapp:list' %}">
+            <span>Project |</span>
+        </a>
+        <span>nav2 |</span>
         <span>nav3</span>
         {% if not user.is_authenticated %}
         <!--  우리가 어디 있든지 간에 login을 누르고 login을 하고 난 다음에는 원래 있었던 경로의 URL 로 돌아온다         -->
