@@ -9,6 +9,9 @@
         <a href="{% url 'projectapp:list' %}" class="pragmatic_header_nav">
             <span>Project </span>
         </a>
+        <a href="{% url 'subscribeapp:list' %}" class="pragmatic_header_nav">
+            <span>Subscribe </span>
+        </a>
         {% if not user.is_authenticated %}
         <!--  우리가 어디 있든지 간에 login을 누르고 login을 하고 난 다음에는 원래 있었던 경로의 URL 로 돌아온다         -->
         <a href="{% url 'accountapp:login' %}?next={{request.path}}" class="pragmatic_header_nav">
