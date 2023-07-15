@@ -6,11 +6,12 @@ from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
+from django.views.generic.list import MultipleObjectMixin
 
 from accountapp.decorators import account_ownership_required
 from accountapp.forms import AccountUpdateForm
 from accountapp.models import HelloWorld
-
+from articleapp.models import Article
 
 # Create your views here.
 
@@ -55,7 +56,7 @@ class AccountCreateView(CreateView):
 
 
 
-class AccountDetailView(DetailView):
+class AccountDetailView(DetailView,MultipleObjectMixin):
     # Detail View는 Read 이기때문에 model의 field 가 그리 많지 않다
     #  어떤 모델을 쓸지
     model = User
@@ -63,6 +64,13 @@ class AccountDetailView(DetailView):
     template_name= 'accountapp/detail.html'
     # 들어오는 사람에 따라서 instance 의 정보가 바뀐다
     context_object_name='target_user'
+
+
+    paginate_by = 25
+
+    def get_context_data(self, **kwargs):
+        object_list = Article.objects.filter(writer = self.get_object())
+        return super(AccountDetailView,self).get_context_data(object_list=object_list,**kwargs)
 
 
 
