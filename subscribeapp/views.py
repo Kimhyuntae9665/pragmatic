@@ -50,5 +50,6 @@ class SubscriptionListView(ListView):
 
     def get_queryset(self):
         projects = Subscription.objects.filter(user = self.request.user).values_list('project')
+        # __in은 필드 리스트인 projects 값들을 Article model의 project에서 일치하는 값들을 골라낸다
         article_list = Article.objects.filter(project__in=projects)
         return article_list
