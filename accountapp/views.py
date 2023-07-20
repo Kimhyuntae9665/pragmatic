@@ -25,7 +25,7 @@ class AccountCreateView(CreateView):
     #  User 를 만들때 Form 이 필요하다  ==> 나중에 create.html에서 {{form}}으로 적어서 UserCreationForm을 가져온다
     form_class = UserCreationForm
     # 성공했을 때 redirect 할 URL , reverse_lazy는 class형 view에서
-    success_url = reverse_lazy('accountapp:hello_world')
+    success_url = reverse_lazy('home')
     # 계정을 만들 때 사용할 template 파일의 이름
     template_name='accountapp/create.html'
 
