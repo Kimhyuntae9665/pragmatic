@@ -137,7 +137,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 #  static 파일들의 root가 base_dir에서(pragmatic) staticfiles 폴더이다 여기가 static 파일들의 root 파일
 STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
@@ -149,7 +149,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 STATICFILES_DIRS=[
-    BASE_DIR/"static"
+    BASE_DIR/"static",
 ]
 
 LOGIN_REDIRECT_URL = reverse_lazy('home')
@@ -157,7 +157,7 @@ LOGOUT_REDIRECT_URL = reverse_lazy('acoountapp:login')
 
 
 
-MEDIA_URL = 'media/'
+MEDIA_URL = '/media/'
 
 # 127.0.0.1:8000/media/test.jpg  이렇게 해서 웹  페이지에서 이미지 파일에 접근 가능하다
 
