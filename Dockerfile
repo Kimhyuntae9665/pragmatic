@@ -4,7 +4,7 @@ WORKDIR /home/
 
 RUN git clone https://github.com/Kimhyuntae9665/pragmatic.git
 
-WORKDIR /home/pragmatic
+WORKDIR /home/pragmatic/
 
 RUN pip install -r requirements.txt
 
