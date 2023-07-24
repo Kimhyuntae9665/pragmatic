@@ -2,6 +2,8 @@ FROM python:3.9.0
 
 WORKDIR /home/
 
+RUN echo "please"
+
 RUN git clone https://github.com/Kimhyuntae9665/pragmatic.git
 
 WORKDIR /home/pragmatic/
@@ -18,5 +20,5 @@ RUN python manage.py collectstatic
 
 EXPOSE 8000
 
-CMD ["gunicorn","pragmatic.wsgi","--bind","0.0.0.0:8000"]
+CMD ["gunicorn", "pragmatic.wsgi", "--bind", "0.0.0.0:8000"]
 
