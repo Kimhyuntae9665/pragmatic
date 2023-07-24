@@ -12,6 +12,8 @@ RUN pip install -r requirements.txt
 
 RUN pip install gunicorn
 
+RUN pip install mysqlclient
+
 RUN echo "SECRET_KEY= django-insecure-%)y6b2=%%&+^&a38!a83k0@%!egosn@e$0io8s6^ve52w5+_@k" > .env
 
 RUN python manage.py migrate

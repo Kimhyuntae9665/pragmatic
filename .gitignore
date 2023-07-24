@@ -80,7 +80,7 @@ fabric.properties
 
 venv/
 
-pragmatic/settings/.env
+.env
 
 __pycache__/
 

@@ -7,7 +7,7 @@ env = environ.Env(
 
 
 environ.Env.read_env(
-    env_file=os.path.join(BASE_DIR, '.env')
+    env_file=os.path.join(BASE_DIR, '../../.env')
 )
 
 
