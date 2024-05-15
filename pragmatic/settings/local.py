@@ -6,7 +6,9 @@ env = environ.Env(
 )
 
 
-environ.Env.read_env()
+environ.Env.read_env(
+    env_file=os.path.join(BASE_DIR, '../../.env')
+    )
 
 
 # Quick-start development settings - unsuitable for production
