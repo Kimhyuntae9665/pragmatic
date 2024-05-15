@@ -10,7 +10,7 @@ RUN pip install -r requirements.txt
 
 RUN pip install gunicorn
 
-RUN echo "SECRET_KEY= django-insecure-%)y6b2=%%&+^&a38!a83k0@%!egosn@e$0io8s6^ve52w5+_@k" > .env
+RUN echo "bh)%81j&l@&t8lcd#sy-$(rf&xxfz4fw0)(o-39=xn1nv(x8+j" > .env
 
 RUN python manage.py migrate
 
